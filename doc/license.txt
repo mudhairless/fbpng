@@ -1,6 +1,7 @@
-  FreeBASIC PNG Library (v1.9.2)
+  FreeBASIC PNG Library (v3.2.z)
 
-  Copyright (C) 2007-2009 Simon Nash
+  Copyright (C) 2007-2010 Simon Nash/Eric Cowles
+  Copyright (C) 2022 Ebben Feagan
   zlib code Copyright (C) 1995-2005 Jean-loup Gailly and Mark Adler
 
   This software is provided 'as-is', without any express or implied

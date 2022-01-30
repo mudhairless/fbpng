@@ -1,7 +1,12 @@
-  FreeBASIC PNG Library (v3.2.q)
+  FreeBASIC PNG Library (v3.2.z)
+  =
 
   Copyright (C) 2007-2010 Simon Nash/Eric Cowles
+  
+  Copyright (C) 2022 Ebben Feagan
+
   zlib code Copyright (C) 1995-2005 Jean-loup Gailly and Mark Adler
+
   See license.txt and zlib/zlib.h for more information.
 
   This library provides easy to use functions for using PNG images in your FreeBASIC
@@ -13,12 +18,13 @@
 
 
   Compiling
-  =========
+  ==
 
   In order to compile you need GNU make, FreeBASIC 0.20 or newer, and GCC if you wish to
   compile in the zlib.  Just type 'make' in the main directory to make the default build.
   
   Options:
+  ```
 	'STATICZ=1'		Include static zlib
 	'DEBUG=1'		Include memory leak detector
 	'PROFILE=1'		Profile library
@@ -29,12 +35,18 @@
 	'PNG_NO_RGB_32=1'	No 32-bit rgb target
 	'PNG_NO_ARGB_32=1'	No 32-bit argb target
 	'PNG_NO_ABGR_32=1'	No 32-bit abgr target
+```
 
+  Notes for users of previous versions (before and including v3.2.z)
+  ==
+
+  The changes for this version are as follows:
+  1)  64-bit and modern FreeBASIC compiler (1.07+ tested) support
 
 
 
   Notes for users of previous versions (before and including v3.2.q)
-  ====================================================
+  ==
 
   The changes for this version are as follows:
   1)  Added memory save function to save to a memory image (png_save_mem creates and returns a memory pointer).
@@ -50,7 +62,7 @@
 
 
   Notes for users of previous versions (before and including v1.9.3)
-  ====================================================
+  ==
 
   The changes for this version are as follows:
   1)  The prebuilt windows static zlib version was bugged in v1.9.3 due to a misbuild.  That is now rectified.
@@ -64,7 +76,7 @@
 
 
   Notes for users of previous versions (before and including v1.9.2)
-  ====================================================
+  ==
 
   The changes for this version are as follows:
   1)  A bug was found, and fixed in the PNG dimensions code thanks to user dreamerman.  This bug affected
@@ -81,7 +93,7 @@
 
 
   Notes for users of previous versions (before and including v1.9.1)
-  ====================================================
+  ==
 
   fbpng has now been modified, so that it will work with the version of ImageDestroy that
   that comes with FB 0.21. However, YOU SHOULD NOT USE IMAGEDESTROY.  This addition is
@@ -107,7 +119,7 @@
 
 
   Notes for users of previous versions (before and including v1.9.0)
-  ====================================================
+  ==
 
   Since version 0.21.0 of FreeBASIC you can no longer use ImageDestroy to free the
   memory used by a png image, you should now use the new png_destroy() sub for this
@@ -117,7 +129,7 @@
 
 
   Notes for users of previous versions (before v1.8.4)
-  ====================================================
+  ==
 
   The librarys interface has changed, due to the new target parameter, and the old
   redundant target depth has been removed, the library always returns a 32 bit image.
@@ -128,7 +140,7 @@
 
 
   Usage
-  =====
+  ==
 
   Once compiled you will need two files, 'build/libfbpng.a' and 'inc/fbpng.bi'.  These
   should be placed either in your projects directory, or in the lib/ and inc/ dirs of your
@@ -143,10 +155,13 @@
 
   For an old style FreeBASIC buffer, as used in older versions of FB
 	PNG_TARGET_FBOLD
+
   For a new style FreeBASIC buffer, as used in the newer versions of FB
 	PNG_TARGET_FBNEW
+
   For a buffer that is ready to be used with OpenGL
 	PNG_TARGET_OPENGL
+
   For a buffer that is suitable for the version of FB in use.
 	PNG_TARGET_DEFAULT
 
@@ -426,7 +441,7 @@
 
 
   Notes for advanced users
-  ========================
+  ==
 
   This section covers advanced topics for using fbpng with any graphics library through
   the use of a callback structure.  The library can used in it's full form or be rebuilt
@@ -519,7 +534,7 @@
 
 
   png_cb
-  ======
+  ===
 
 	type png_cb
 		
@@ -741,25 +756,38 @@
 
 
   Credits
-  =======
+  ==
 
   Technical credits:
+
     victor for the FreeBASIC compiler, and the rest of the team for their work on it.
+  
     The creators of the PNG format, and the RFC that was very useful for me.
     Willem van Schaik for the pngsuite of testing images.
+
     The creators of zlib, for the compression, and decompression routines.
+  
     counting_pine, for one line of code that has since been eliminated, but was
       very helpful at the time, and also for the base FB code I modified for the SSE
       patch to fbpng.  It's my modified version, so if anyone finds any bug in that part
       don't hassle him about it. :P
+
     DrV for the memory leak detector
+
     Coderjeff and others for the Wiki manual
+
     The makers of all the other tools I use, especially GDB, valgrind, gcc, fasm, make
+
     cha0s, nkk and sir_mud for building the windows prebuilt version in some versions of fbpng
+
     1000101 for default image format logic, and the work on 3.2.q
+
     Dr_D for the OpenGL test program.
+
     Other bug reporters.
+
   General greetings:
+
     All FreeBASIC users, especially those who are on the IRC channel and the forum, in
     particular (but in no particular order)
       mr_cha0s, stylin, {1000101}, voodooattack, {Nathan}, spaz, pritchard,
@@ -770,7 +798,7 @@
 
 
   Notes on the zlib usage
-  =======================
+  ==
 
   The source files for zlib are just taken directly from an official zlib distribution
   I haven't modified them in any way
