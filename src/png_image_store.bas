@@ -22,11 +22,11 @@ function png_image_store cdecl alias "png_image_store" _
 		byref cb         as png_cb _
 	) as Any ptr
 
-        dim as any ptr          outbuffer
-        dim as uinteger		boffset
-	dim as integer		w = any
-	dim as Integer		h = any
-	dim as integer		bpp = any
+	dim as any ptr          outbuffer
+	dim as ulong		boffset
+	dim as long		w = any
+	dim as long		h = any
+	dim as long		bpp = any
 
         function = NULL
 
@@ -119,13 +119,13 @@ function png_image_store cdecl alias "png_image_store" _
 		next x
 	next y
 	
-	dim as integer sz = 0
+	dim as ulong sz = 0
 	dim as any ptr cmp = 0
 
 	sz = ((w * 4) + 1) * h
 	cmp = Allocate( compressBound( sz ) )
 
-	dim as integer destlen = compressBound( sz )
+	dim as ulong destlen = compressBound( sz )
 
 	if compress( cmp, @destlen, buffer, sz ) <> 0 then
 		deallocate( outbuffer )

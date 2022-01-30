@@ -12,23 +12,23 @@ sub row_conv_c0_to_argb32 Cdecl Alias "row_conv_c0_to_argb32" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
-		dim as uinteger c      = any
-		dim as integer  i      = any
-		dim as integer  max    = (8 \ .bitdepth) - 1
-		dim as integer  mask   = (2 ^ .bitdepth) - 1
+		dim as ulong c      = any
+		dim as long  i      = any
+		dim as long  max    = (8 \ .bitdepth) - 1
+		dim as long  mask   = (2 ^ .bitdepth) - 1
 		dim as ubyte    alpha  = any
-		Dim As Integer  grey   = 255 \ mask
+		Dim As long  grey   = 255 \ mask
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
@@ -48,7 +48,7 @@ sub row_conv_c0_to_argb32 Cdecl Alias "row_conv_c0_to_argb32" _
 
 						c *= grey
 
-						cast( uinteger ptr, out_row )[ x1 ] = ARGB32( alpha, c, c, c )
+						cast( ulong ptr, out_row )[ x1 ] = ARGB32( alpha, c, c, c )
 					end if
 
 					x1 += wfactor
@@ -64,7 +64,7 @@ sub row_conv_c0_to_argb32 Cdecl Alias "row_conv_c0_to_argb32" _
 				end if
 				c shr= 8
 
-				cast( uinteger ptr, out_row )[ x1 ] = ARGB32( alpha, c, c, c )
+				cast( ulong ptr, out_row )[ x1 ] = ARGB32( alpha, c, c, c )
 
 				x1 += wfactor
 			end if
@@ -83,22 +83,22 @@ Sub row_conv_c2_to_argb32 Cdecl Alias "row_conv_c2_to_argb32" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
 		dim as ubyte    alpha  = Any
-		Dim As UInteger c      = Any
+		Dim As ulong c      = Any
 		dim as ushort   r2     = any
 		dim as ushort   g2     = any
 		dim as ushort   b2     = any
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
@@ -123,7 +123,7 @@ Sub row_conv_c2_to_argb32 Cdecl Alias "row_conv_c2_to_argb32" _
 				c = ARGB32( alpha, r2 shr 8, g2 shr 8, b2 shr 8 )
 			end if
 
-			Cast( uinteger ptr, out_row )[ x1 ] = c
+			Cast( ulong ptr, out_row )[ x1 ] = c
 
 			x1 += wfactor
 		next __x
@@ -140,22 +140,22 @@ sub row_conv_c3_to_argb32 Cdecl Alias "row_conv_c3_to_argb32" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
-		dim as uinteger c      = any
-		dim as integer  i      = any
-		dim as integer  max    = (8 \ .bitdepth) - 1
-		dim as integer  mask   = (2 ^ .bitdepth) - 1
+		dim as ulong c      = any
+		dim as long  i      = any
+		dim as long  max    = (8 \ .bitdepth) - 1
+		dim as long  mask   = (2 ^ .bitdepth) - 1
 		dim as ubyte    alpha  = any
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
@@ -170,7 +170,7 @@ sub row_conv_c3_to_argb32 Cdecl Alias "row_conv_c3_to_argb32" _
 					with .PLTE(c)
 						c = ARGB32( alpha, .r, .g, .b )
 					end with
-					cast( uinteger ptr, out_row )[ x1 ] = c
+					cast( ulong ptr, out_row )[ x1 ] = c
 						
 				end if
 
@@ -191,22 +191,22 @@ sub row_conv_c4_to_argb32 Cdecl Alias "row_conv_c4_to_argb32" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
-		dim as uinteger c      = any
-		dim as integer  i      = any
-		dim as integer  max    = (8 \ .bitdepth) - 1
-		dim as integer  mask   = (2 ^ .bitdepth) - 1
+		dim as ulong c      = any
+		dim as long  i      = any
+		dim as long  max    = (8 \ .bitdepth) - 1
+		dim as long  mask   = (2 ^ .bitdepth) - 1
 		dim as ubyte    alpha  = any
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
@@ -218,7 +218,7 @@ sub row_conv_c4_to_argb32 Cdecl Alias "row_conv_c4_to_argb32" _
 				alpha = p[-1]
 			end if
 
-			cast( uinteger ptr, out_row )[ x1 ] = ARGB32( alpha, c, c, c )
+			cast( ulong ptr, out_row )[ x1 ] = ARGB32( alpha, c, c, c )
 
 			x1 += wfactor
 		next __x
@@ -235,23 +235,23 @@ sub row_conv_c6_to_argb32 Cdecl Alias "row_conv_c6_to_argb32" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
 			if .bitdepth = 8 then
-				cast( uinteger ptr, out_row )[ x1 ] = ARGB32( p[0], p[-3], p[-2], p[-1] )
+				cast( ulong ptr, out_row )[ x1 ] = ARGB32( p[0], p[-3], p[-2], p[-1] )
 			else
-				cast( UInteger ptr, out_row )[ x1 ] = ARGB32( p[-1], p[-7], p[-5], p[-3] )
+				cast( ulong ptr, out_row )[ x1 ] = ARGB32( p[-1], p[-7], p[-5], p[-3] )
 			end if
 
 			x1 += wfactor

@@ -8,11 +8,11 @@
 Function opengl_cb_create cdecl alias "opengl_cb_create" _
 	( _
 		ByRef img	As Any Ptr, _
-		ByVal w		As Integer, _
-		ByVal h		As Integer, _
-		ByRef bpp       As Integer, _
-		ByVal ct        As Integer, _
-		ByVal bd        As Integer _
+		ByVal w		As long, _
+		ByVal h		As long, _
+		ByRef bpp       As long, _
+		ByVal ct        As long, _
+		ByVal bd        As long _
 	) as Integer
 
         function = 0
@@ -21,8 +21,8 @@ Function opengl_cb_create cdecl alias "opengl_cb_create" _
 
         img = callocate_aligned( w * h * 4 )
         if( img = NULL )then function = -1
-        cast( uinteger ptr, img )[-2] = w
-        Cast( uinteger ptr, img )[-3] = h
+        cast( long ptr, img )[-2] = w
+        Cast( long ptr, img )[-3] = h
 
 end function
 
@@ -40,12 +40,12 @@ end sub
 function opengl_cb_img_width cdecl alias "opengl_cb_img_width" _
 	( _
 		ByVal img	As Any Ptr, _
-		ByRef result	As Integer _
+		ByRef result	As long _
 	) As Integer
 
         function = 0
 
-        result = Cast( uinteger ptr, img )[-2]
+        result = Cast( long ptr, img )[-2]
 
 end function
 
@@ -53,12 +53,12 @@ end function
 function opengl_cb_img_height cdecl alias "opengl_cb_img_height" _
 	( _
 		ByVal img	As Any Ptr, _
-		ByRef result	As Integer _
+		ByRef result	As long _
 	) As Integer
 
         function = 0
 
-        result = Cast( uinteger ptr, img )[-3]
+        result = Cast( long ptr, img )[-3]
 
 end function
 
@@ -66,7 +66,7 @@ end function
 function opengl_cb_img_bpp cdecl alias "opengl_cb_img_bpp" _
 	( _
 		ByVal img	As Any Ptr, _
-		ByRef result	As Integer _
+		ByRef result	As long _
 	) As Integer
 
         function = 0
@@ -79,7 +79,7 @@ end function
 function opengl_cb_img_format cdecl alias "opengl_cb_img_format" _
 	( _
 		ByVal img	As Any Ptr, _
-		ByRef result	As integer _
+		ByRef result	As long _
 	) As Integer
 
         function = 0
@@ -93,21 +93,21 @@ function opengl_cb_img_row cdecl alias "opengl_cb_img_row" _
 	( _
 		ByVal img	As Any Ptr, _
 		ByRef result	As Any Ptr, _
-		ByVal row	As Integer _
+		ByVal row	As long _
 	) As Integer
 
         function = 0
 
-        if( row < 0 )OrElse( row >= Cast( uinteger ptr, img )[-3] )then Return -1
+        if( row < 0 )OrElse( row >= Cast( long ptr, img )[-3] )then Return -1
 
-        result = img + ( cast( uinteger ptr, img )[-3] - row - 1 ) * ( Cast( uinteger ptr, img )[-2] * 4 )
+        result = img + ( cast( long ptr, img )[-3] - row - 1 ) * ( Cast( long ptr, img )[-2] * 4 )
 
 End function
 
 
 function opengl_cb_palette_format cdecl alias "opengl_cb_palette_format" _
 	( _
-		ByRef result	As integer _
+		ByRef result	As long _
 	) As Integer
 
         function = 0

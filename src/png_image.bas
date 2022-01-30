@@ -1,10 +1,10 @@
 #include once "png_image.bi"
 
 ' Tables for calculating when in interlaced mode
-static as integer tb_wfac(1 to 7) = {8, 8, 4, 4, 2, 2, 1}
-static as integer tb_hfac(1 to 7) = {8, 8, 8, 4, 4, 2, 2}
-static as integer tb_xoff(1 to 7) = {0, 4, 0, 2, 0, 1, 0}
-static as integer tb_yoff(1 to 7) = {0, 0, 4, 0, 2, 0, 1}
+static as long tb_wfac(1 to 7) = {8, 8, 4, 4, 2, 2, 1}
+static as long tb_hfac(1 to 7) = {8, 8, 8, 4, 4, 2, 2}
+static as long tb_xoff(1 to 7) = {0, 4, 0, 2, 0, 1, 0}
+static as long tb_yoff(1 to 7) = {0, 0, 4, 0, 2, 0, 1}
 ' The 8 byte signature that all PNG files must start with
 static as ubyte png_sig(0 to 7) = {137, 80, 78, 71, 13, 10, 26, 10}
 

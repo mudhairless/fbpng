@@ -128,10 +128,10 @@ declare Function png_image_prepare _
 declare function png_image_convert _
 	( _
 		byref png_image  as png_image_t, _
-		ByVal outbpp     As Integer, _
+		ByVal outbpp     As long, _
 		byref outbuffer  as any ptr, _
-                byval outpal     as any ptr, _
-                byref cb         as png_cb   _
+		byval outpal     as any ptr, _
+		byref cb         as png_cb   _
 	) as integer
 
 Declare function chunk_find _
@@ -158,7 +158,7 @@ declare function png_image_store cdecl alias "png_image_store" _
 #Ifndef PNG_DEBUG
 declare function callocate_aligned cdecl alias "callocate_aligned" _
 	( _
-		byval size as integer _
+		byval size as ulong _
 	) as any ptr
 
 declare Sub deallocate_aligned cdecl alias "deallocate_aligned" _
@@ -168,10 +168,10 @@ declare Sub deallocate_aligned cdecl alias "deallocate_aligned" _
 #EndIf
 
 
-Extern as integer tb_wfac(1 To 7)
-extern as integer tb_hfac(1 to 7)
-extern as integer tb_xoff(1 to 7)
-extern as integer tb_yoff(1 to 7)
+Extern as long tb_wfac(1 To 7)
+extern as long tb_hfac(1 to 7)
+extern as long tb_xoff(1 to 7)
+extern as long tb_yoff(1 to 7)
 extern as ubyte png_sig(0 to 7)
 
 Extern As sub Cdecl _
@@ -179,9 +179,9 @@ Extern As sub Cdecl _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)       conv_row_function( COLORTYPE_0 To COLORTYPE_6, FORMAT_FIRST To FORMAT_LAST + 1 )
 
 
@@ -192,10 +192,10 @@ Extern As sub Cdecl _
 	)       conv_pal_function( FORMAT_FIRST To FORMAT_LAST + 1 )
 
 
-Type uInt as uinteger
+Type uInt as ulong
 type Bytef as Byte
 type charf as byte
-type intf as integer
+type intf as long
 type uIntf as uInt
 type uLongf as uLong
 type voidpc as any ptr

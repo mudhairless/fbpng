@@ -10,9 +10,9 @@ Declare Sub row_conv_c0_to_p8 cdecl alias "row_conv_c0_to_p8" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -21,9 +21,9 @@ Declare Sub row_conv_c0_to_rgb16 cdecl alias "row_conv_c0_to_rgb16" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -32,9 +32,9 @@ Declare Sub row_conv_c0_to_rgb32 cdecl alias "row_conv_c0_to_rgb32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -43,9 +43,9 @@ Declare Sub row_conv_c0_to_argb32 cdecl alias "row_conv_c0_to_argb32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -54,9 +54,9 @@ Declare Sub row_conv_c0_to_abgr32 cdecl alias "row_conv_c0_to_abgr32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -65,9 +65,9 @@ Declare Sub row_conv_c2_to_rgb16 cdecl alias "row_conv_c2_to_rgb16" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -76,9 +76,9 @@ Declare Sub row_conv_c2_to_rgb32 cdecl alias "row_conv_c2_to_rgb32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -87,9 +87,9 @@ Declare Sub row_conv_c2_to_argb32 cdecl alias "row_conv_c2_to_argb32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -98,9 +98,9 @@ Declare Sub row_conv_c2_to_abgr32 cdecl alias "row_conv_c2_to_abgr32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -109,9 +109,9 @@ Declare Sub row_conv_c3_to_p8 cdecl alias "row_conv_c3_to_p8" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -120,9 +120,9 @@ Declare Sub row_conv_c3_to_rgb16 cdecl alias "row_conv_c3_to_rgb16" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -131,9 +131,9 @@ Declare Sub row_conv_c3_to_rgb32 cdecl alias "row_conv_c3_to_rgb32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -142,9 +142,9 @@ Declare Sub row_conv_c3_to_argb32 cdecl alias "row_conv_c3_to_argb32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -153,9 +153,9 @@ Declare Sub row_conv_c3_to_abgr32 cdecl alias "row_conv_c3_to_abgr32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -164,9 +164,9 @@ Declare Sub row_conv_c4_to_p8 cdecl alias "row_conv_c4_to_p8" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -175,9 +175,9 @@ Declare Sub row_conv_c4_to_rgb16 cdecl alias "row_conv_c4_to_rgb16" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -186,9 +186,9 @@ Declare Sub row_conv_c4_to_rgb32 cdecl alias "row_conv_c4_to_rgb32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -197,9 +197,9 @@ Declare Sub row_conv_c4_to_argb32 cdecl alias "row_conv_c4_to_argb32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -208,9 +208,9 @@ Declare Sub row_conv_c4_to_abgr32 cdecl alias "row_conv_c4_to_abgr32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -219,9 +219,9 @@ Declare Sub row_conv_c6_to_rgb16 cdecl alias "row_conv_c6_to_rgb16" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -230,9 +230,9 @@ Declare Sub row_conv_c6_to_rgb32 cdecl alias "row_conv_c6_to_rgb32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -241,9 +241,9 @@ Declare Sub row_conv_c6_to_argb32 cdecl alias "row_conv_c6_to_argb32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 
@@ -252,9 +252,9 @@ Declare Sub row_conv_c6_to_abgr32 cdecl alias "row_conv_c6_to_abgr32" _
 		byref png_image  as png_image_t_, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 

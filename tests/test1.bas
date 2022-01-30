@@ -13,9 +13,9 @@ const as integer scr_height = 350
 '::::::::
 function cmp_func cdecl _
 	( _
-		byval s1 as any ptr, _
-		byval s2 as any ptr _
-	) as integer
+		byval s1 as const any ptr, _
+		byval s2 as const any ptr _
+	) as long
 
 	if *cptr( string ptr, s1 ) < *cptr( string ptr, s2 ) then
 		function = -1

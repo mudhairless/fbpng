@@ -8,11 +8,11 @@
 function gfxlib2_cb_create_new cdecl alias "gfxlib2_cb_create_new" _
 	( _
 		ByRef img	As Any Ptr, _
-		ByVal w		As Integer, _
-		ByVal h		As Integer, _
-		ByRef bpp       As Integer, _
-		ByVal ct        As Integer, _
-		ByVal bd        As Integer _
+		ByVal w		As long, _
+		ByVal h		As long, _
+		ByRef bpp       As long, _
+		ByVal ct        As long, _
+		ByVal bd        As long _
 	) as Integer
 
 	Dim As uInteger		pitch = Any
@@ -58,11 +58,11 @@ end function
 function gfxlib2_cb_create_old cdecl alias "gfxlib2_cb_create_old" _
 	( _
 		ByRef img	As Any Ptr, _
-		ByVal w		As Integer, _
-		ByVal h		As Integer, _
-		ByRef bpp       As Integer, _
-		ByVal ct        As Integer, _
-		ByVal bd        As Integer _
+		ByVal w		As long, _
+		ByVal h		As long, _
+		ByRef bpp       As long, _
+		ByVal ct        As long, _
+		ByVal bd        As long _
 	) as Integer
 
         function = -1
@@ -111,7 +111,7 @@ end sub
 Function gfxlib2_cb_img_width cdecl alias "gfxlib2_cb_img_width" _
 	( _
 		ByVal img	As Any Ptr, _
-		ByRef result	As Integer _
+		ByRef result	As long _
 	) As Integer
 
         function = 0
@@ -124,7 +124,7 @@ end function
 function gfxlib2_cb_img_height cdecl alias "gfxlib2_cb_img_height" _
 	( _
 		ByVal img	As Any Ptr, _
-		ByRef result	As Integer _
+		ByRef result	As long _
 	) As Integer
 
         function = 0
@@ -137,7 +137,7 @@ end function
 function gfxlib2_cb_img_bpp cdecl alias "gfxlib2_cb_img_bpp" _
 	( _
 		ByVal img	As Any Ptr, _
-		ByRef result	As Integer _
+		ByRef result	As long _
 	) As Integer
 
         function = 0
@@ -151,10 +151,10 @@ end function
 function gfxlib2_cb_img_format cdecl alias "gfxlib2_cb_img_format" _
 	( _
 		ByVal img	As Any Ptr, _
-		ByRef result	As integer _
+		ByRef result	As long _
 	) As Integer
 
-        dim as integer  bpp
+        dim as long  bpp
 
         function = 0
 
@@ -174,10 +174,10 @@ function gfxlib2_cb_img_row cdecl alias "gfxlib2_cb_img_row" _
 	( _
 		ByVal img	As Any Ptr, _
 		ByRef result	As Any Ptr, _
-		ByVal row	As Integer _
+		ByVal row	As long _
 	) As Integer
 
-        dim as integer  height, pitch
+        dim as long  height, pitch
 
         function = 0
 
@@ -191,7 +191,7 @@ end Function
 
 function gfxlib2_cb_palette_format cdecl alias "gfxlib2_cb_palette_format" _
 	( _
-		ByRef result	As integer _
+		ByRef result	As long _
 	) As Integer
 
         function = 0

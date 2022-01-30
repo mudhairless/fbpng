@@ -85,8 +85,8 @@ function IDAT_uncompress _
 		byref png_image   as png_image_t _
 	) as integer
 
-	dim as integer predict_len = IDAT_calc( png_image )
-	dim as integer dest_len    = (predict_len * 1.2) + 12
+	dim as long predict_len = IDAT_calc( png_image )
+	dim as long dest_len    = (predict_len * 1.2) + 12
 	dim as any ptr dest        = callocate( dest_len )
 
 	function = 1

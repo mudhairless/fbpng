@@ -1,0 +1,5 @@
+tests/*.exe
+**.o
+build/libfbpng.a
+build/libfbpngs.a
+tests/test_out.png

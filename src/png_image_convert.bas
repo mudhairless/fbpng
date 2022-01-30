@@ -175,26 +175,26 @@ end sub
 function png_image_convert _
 	( _
 		byref png_image  as png_image_t, _
-		byval outbpp     as integer, _
+		byval outbpp     as long, _
 		byref outbuffer  as any ptr, _
-                byval outpal     as any ptr, _
-                byref cb         as png_cb   _
+		byval outpal     as any ptr, _
+		byref cb         as png_cb   _
 	) as integer
 
-	dim as integer      offset    = 0
-	dim as integer      data_read = 0
+	dim as long      offset    = 0
+	dim as long      data_read = 0
 	dim as ubyte ptr    in_img    = any
-	dim as Integer      pass_max  = 1
-	dim as integer      pass      = any
+	dim as long      pass_max  = 1
+	dim as long      pass      = any
 	
-	Dim As Integer      scan_size = Any
-	Dim As Integer      pixCount  = Any
+	Dim As long      scan_size = Any
+	Dim As long      pixCount  = Any
 
-        dim as integer		outwidth	= any
-        dim as integer		outheight	= any
+        dim as long		outwidth	= any
+        dim as long		outheight	= any
 	dim as any ptr		outrow		= any
-        dim as integer		outformat	= any
-        dim as integer		palformat	= any
+        dim as long		outformat	= any
+        dim as long		palformat	= any
 
 
         dim as sub cdecl _
@@ -202,9 +202,9 @@ function png_image_convert _
                         byref png_image  as png_image_t, _
                         byval out_row    as any ptr, _
                         byval p          as ubyte ptr, _
-                        byval x1         as integer, _
-                        byval wfactor    as integer, _
-                        byval scan_size  as integer _
+                        byval x1         as long, _
+                        byval wfactor    as long, _
+                        byval scan_size  as long _
                 )       	row_conv
 
 
@@ -292,14 +292,14 @@ function png_image_convert _
 		for pass = 1 to pass_max
 
 			dim as integer scan_size = calc_scan_size( png_image, pass )
-			dim as integer y1        = 0
-			dim as integer wfactor   = 1
-			dim as integer hfactor   = 1
-			dim as integer y_max     = .height - 1
-			dim as integer y         = any
+			dim as long y1        = 0
+			dim as long wfactor   = 1
+			dim as long hfactor   = 1
+			dim as long y_max     = .height - 1
+			dim as long y         = any
 
 			if .interlacemethod = 1 then
-				dim as integer iheight = any
+				dim as long iheight = any
 				wfactor = tb_wfac(pass)
 				hfactor = tb_hfac(pass)
 				iheight = (.height + hfactor - tb_yoff(pass) - 1) \ hfactor
@@ -311,7 +311,7 @@ function png_image_convert _
 				end if
 			end if
 			for y = 0 to y_max
-				dim as integer x1     = 0
+				dim as long x1     = 0
 				dim as ubyte   filter = in_img[offset]
 				offset += 1 ' Jump past the filter byte
 				if .interlacemethod = 1 then

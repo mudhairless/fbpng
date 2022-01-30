@@ -12,23 +12,23 @@ sub row_conv_c0_to_abgr32 Cdecl Alias "row_conv_c0_to_abgr32" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
-		dim as uinteger c      = any
-		dim as integer  i      = any
-		dim as integer  max    = (8 \ .bitdepth) - 1
-		dim as integer  mask   = (2 ^ .bitdepth) - 1
-		Dim As Integer  grey   = 255 \ mask
+		dim as ulong c      = any
+		dim as long  i      = any
+		dim as long  max    = (8 \ .bitdepth) - 1
+		dim as long  mask   = (2 ^ .bitdepth) - 1
+		Dim As long  grey   = 255 \ mask
 		dim as ubyte    alpha  = any
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
@@ -48,7 +48,7 @@ sub row_conv_c0_to_abgr32 Cdecl Alias "row_conv_c0_to_abgr32" _
                                                 c *= grey
 						Alpha  = PNG_DEFAULT_ALPHA
 
-						cast( uinteger ptr, out_row )[ x1 ] = ABGR32( alpha, c, c, c )
+						cast( ulong ptr, out_row )[ x1 ] = ABGR32( alpha, c, c, c )
 					end if
 
 					x1 += wfactor
@@ -62,7 +62,7 @@ sub row_conv_c0_to_abgr32 Cdecl Alias "row_conv_c0_to_abgr32" _
 				end if
 				c shr= 8
 
-				cast( uinteger ptr, out_row )[ x1 ] = ABGR32( alpha, c, c, c )
+				cast( ulong ptr, out_row )[ x1 ] = ABGR32( alpha, c, c, c )
 
 				x1 += wfactor
 			end if
@@ -81,9 +81,9 @@ sub row_conv_c2_to_abgr32 Cdecl Alias "row_conv_c2_to_abgr32" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
@@ -95,7 +95,7 @@ sub row_conv_c2_to_abgr32 Cdecl Alias "row_conv_c2_to_abgr32" _
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
@@ -107,7 +107,7 @@ sub row_conv_c2_to_abgr32 Cdecl Alias "row_conv_c2_to_abgr32" _
 						alpha = 0
 					end if
 				end if
-				cast( uinteger ptr, out_row )[ x1 ] = ABGR32( alpha, p[-0], p[-1], p[-2] )
+				cast( ulong ptr, out_row )[ x1 ] = ABGR32( alpha, p[-0], p[-1], p[-2] )
 			else
 				r2 = get_u16( @p[-5] )
 				g2 = get_u16( @p[-3] )
@@ -117,7 +117,7 @@ sub row_conv_c2_to_abgr32 Cdecl Alias "row_conv_c2_to_abgr32" _
 						alpha = 0
 					end if
 				end if
-				cast( uinteger ptr, out_row )[ x1 ] = ABGR32( alpha, b2 shr 8, g2 shr 8, r2 shr 8 )
+				cast( ulong ptr, out_row )[ x1 ] = ABGR32( alpha, b2 shr 8, g2 shr 8, r2 shr 8 )
 			end if
 
 			x1 += wfactor
@@ -135,22 +135,22 @@ sub row_conv_c3_to_abgr32 Cdecl Alias "row_conv_c3_to_abgr32" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
-		dim as uinteger c      = any
-		dim as integer  i      = any
-		dim as integer  max    = (8 \ .bitdepth) - 1
-		dim as integer  mask   = (2 ^ .bitdepth) - 1
+		dim as ulong c      = any
+		dim as long  i      = any
+		dim as long  max    = (8 \ .bitdepth) - 1
+		dim as long  mask   = (2 ^ .bitdepth) - 1
 		dim as ubyte    alpha  = any
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
@@ -165,7 +165,7 @@ sub row_conv_c3_to_abgr32 Cdecl Alias "row_conv_c3_to_abgr32" _
 					with .PLTE(c)
 						c = ABGR32( alpha, .b, .g, .r )
 					end with
-					cast( uinteger ptr, out_row )[ x1 ] = c
+					cast( ulong ptr, out_row )[ x1 ] = c
 				End if
 
 				x1 += wfactor
@@ -185,22 +185,22 @@ sub row_conv_c4_to_abgr32 Cdecl Alias "row_conv_c4_to_abgr32"_
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
-		dim as uinteger c      = any
-		dim as integer  i      = any
-		dim as integer  max    = (8 \ .bitdepth) - 1
-		dim as integer  mask   = (2 ^ .bitdepth) - 1
+		dim as ulong c      = any
+		dim as long  i      = any
+		dim as long  max    = (8 \ .bitdepth) - 1
+		dim as long  mask   = (2 ^ .bitdepth) - 1
 		dim as ubyte    alpha  = any
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
@@ -212,7 +212,7 @@ sub row_conv_c4_to_abgr32 Cdecl Alias "row_conv_c4_to_abgr32"_
 				alpha = p[-1]
 			end if
 
-			cast( uinteger ptr, out_row )[ x1 ] = ABGR32( alpha, c, c, c )
+			cast( ulong ptr, out_row )[ x1 ] = ABGR32( alpha, c, c, c )
 
 			x1 += wfactor
 		next __x
@@ -229,23 +229,23 @@ sub row_conv_c6_to_abgr32 Cdecl Alias "row_conv_c6_to_abgr32" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
 			if .bitdepth = 8 then
-				cast( uinteger ptr, out_row )[ x1 ] = ABGR32( p[0], p[-1], p[-2], p[-3] )
+				cast( ulong ptr, out_row )[ x1 ] = ABGR32( p[0], p[-1], p[-2], p[-3] )
 			else
-				cast( UInteger ptr, out_row )[ x1 ] = ABGR32( p[-1], p[-3], p[-5], p[-7] )
+				cast( ulong ptr, out_row )[ x1 ] = ABGR32( p[-1], p[-3], p[-5], p[-7] )
 			end if
 
 			x1 += wfactor

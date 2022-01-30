@@ -82,7 +82,7 @@ endif
 all: $(LIBBIN) $(patsubst %.bas,%$(EXEEXT),$(TSTS))
 
 $(LIBBIN) : $(OBJS) $(ZOBJS)
-	$(FBC) $(FLAGS) -i $(INCDIR) -lib -x $(LIBXNAME) $(OBJS) $(ZOBJS)
+	$(FBC) $(FLAGS) -i $(INCDIR) -lib -x $(LIBBIN) $(OBJS) $(ZOBJS)
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.bas $(INCS)
 	$(FBC) $(FLAGS) -i $(INCDIR) $< -c -o $@

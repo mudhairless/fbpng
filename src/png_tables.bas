@@ -13,9 +13,9 @@ Dim Shared As sub Cdecl _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)       conv_row_function( COLORTYPE_0 To COLORTYPE_6, FORMAT_FIRST To FORMAT_LAST + 1 ) = _
         { _
         /' ct'/ _

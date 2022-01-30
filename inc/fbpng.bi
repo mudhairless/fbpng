@@ -135,11 +135,11 @@ type png_cb
 	as function cdecl _
 		( _
 			 byref img	as any ptr, _
-			 byval w	as integer, _
-			 byval h	as integer, _
-			 byref bpp	as integer, _
-			 byval ct	as integer, _
-			 byval bd	as integer _
+			 byval w	as long, _
+			 byval h	as long, _
+			 byref bpp	as long, _
+			 byval ct	as long, _
+			 byval bd	as long _
 		) as integer		create
 	
 	as sub cdecl _
@@ -150,37 +150,37 @@ type png_cb
 	as function cdecl _
 		( _
 			byval img	as any ptr, _
-			byref result	as integer _
+			byref result	as long _
 		) as integer		img_width
 	
 	as function cdecl _
 		( _
 			byval img	as any ptr, _
-			byref result	as integer _
+			byref result	as long _
 		) as integer		img_height
 	
 	as function cdecl _
 		( _
 			byval img	as any ptr, _
-			byref result	as integer _
+			byref result	as long _
 		) as integer		img_bpp
 	
 	as function cdecl _
 		( _
 			byval img	as any ptr, _
-			byref result	as integer _
+			byref result	as long _
 		) as integer		img_format
 	
 	as function cdecl _
 		( _
 			byval img	As any ptr, _
 			byref result	as any ptr, _
-			byval row	as integer _
+			byval row	as long _
 		) as integer		img_row
 	
 	as function cdecl _
 		( _
-			byref result	as integer _
+			byref result	as long _
 		) as integer		palette_format
 	
 end type

@@ -12,22 +12,22 @@ Sub row_conv_c0_to_p8 cdecl alias "row_conv_c0_to_p8" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
-		dim as uinteger c      = any
-		dim as integer  i      = any
-		dim as integer  max    = (8 \ .bitdepth) - 1
-		dim as integer  mask   = (2 ^ .bitdepth) - 1
-		'Dim As Integer  grey   = 255 \ mask
+		dim as ulong c      = any
+		dim as long  i      = any
+		dim as long  max    = (8 \ .bitdepth) - 1
+		dim as long  mask   = (2 ^ .bitdepth) - 1
+		'Dim As long  grey   = 255 \ mask
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
@@ -66,20 +66,20 @@ sub row_conv_c3_to_p8 Cdecl Alias "row_conv_c3_to_p8" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
-		dim as integer  i      = any
-		dim as integer  max    = (8 \ .bitdepth) - 1
-		dim as integer  mask   = (2 ^ .bitdepth) - 1
+		dim as long  i      = any
+		dim as long  max    = (8 \ .bitdepth) - 1
+		dim as long  mask   = (2 ^ .bitdepth) - 1
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
@@ -106,21 +106,21 @@ sub row_conv_c4_to_p8 Cdecl Alias "row_conv_c4_to_p8" _
 		byref png_image  as png_image_t, _
 		byval out_row    as any ptr, _
 		byval p          as ubyte ptr, _
-		byval x1         as integer, _
-		byval wfactor    as integer, _
-		byval scan_size  as integer _
+		byval x1         as long, _
+		byval wfactor    as long, _
+		byval scan_size  as long _
 	)
 
 	with png_image
 
-		dim as uinteger c      = any
-		dim as integer  i      = any
-		dim as integer  max    = (8 \ .bitdepth) - 1
-		dim as integer  mask   = (2 ^ .bitdepth) - 1
+		dim as ulong c      = any
+		dim as long  i      = any
+		dim as long  max    = (8 \ .bitdepth) - 1
+		dim as long  mask   = (2 ^ .bitdepth) - 1
 
 		p -= 1
 
-		for __x as integer = 0 to scan_size
+		for __x as long = 0 to scan_size
 
 			p += .bpp
 
