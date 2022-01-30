@@ -2,7 +2,7 @@
 
   Copyright (C) 2007-2010 Simon Nash/Eric Cowles
   Copyright (C) 2022 Ebben Feagan
-  zlib code Copyright (C) 1995-2005 Jean-loup Gailly and Mark Adler
+  zlib code (C) 1995-2017 Jean-loup Gailly and Mark Adler
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages

@@ -5,7 +5,7 @@
   
   Copyright (C) 2022 Ebben Feagan
 
-  zlib code Copyright (C) 1995-2005 Jean-loup Gailly and Mark Adler
+  zlib code (C) 1995-2017 Jean-loup Gailly and Mark Adler
 
   See license.txt and zlib/zlib.h for more information.
 

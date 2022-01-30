@@ -36,7 +36,7 @@ ifdef STATICZ
 	ZOBJS := adler32.o compress.o crc32.o deflate.o inffast.o
 	ZOBJS += inflate.o infback.o inftrees.o trees.o uncompr.o zutil.o
 	ZOBJS := $(patsubst %.o,$(ZDIR)/%.o,$(ZOBJS))
-	ZSRCS := $(patsubst %.o,%.h,$(ZOBJS))
+	ZSRCS := $(patsubst %.o,%.c,$(ZOBJS))
 	ZINCS := $(wildcard $(ZDIR)/*.h)
 endif
 
@@ -95,4 +95,5 @@ $(ZDIR)/%.o : $(ZDIR)/%.c $(ZINCS)
 
 clean:
 	$(RM) -f $(OBJS) $(ZOBJS) $(BACKUPS) $(TESTPNGS)
+
 .Phony : clean
