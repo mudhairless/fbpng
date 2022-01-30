@@ -95,5 +95,8 @@ $(ZDIR)/%.o : $(ZDIR)/%.c $(ZINCS)
 
 clean:
 	$(RM) -f $(OBJS) $(ZOBJS) $(BACKUPS) $(TESTPNGS)
+ifndef STATICZ
+	make clean STATICZ=1
+endif
 
 .Phony : clean
