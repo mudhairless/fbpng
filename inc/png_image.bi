@@ -23,15 +23,15 @@
 #Define ABGR32( _a, _b, _g, _r )	( ( ( _a and &b11111111 ) shl 24 ) or ( ( _b and &b11111111 ) shl 16 ) or ( ( _g and &b11111111 ) shl  8 ) or ( ( _r and &b11111111 ) shr  0 ) )
 
 
-#define get_u32(p) (((cuint( cptr( ubyte ptr, p )[0] ) ) shl 24) _
-                 or ((cuint( cptr( ubyte ptr, p )[1] ) ) shl 16) _
-                 or ((cuint( cptr( ubyte ptr, p )[2] ) ) shl 8) _
-                 or  (cuint( cptr( ubyte ptr, p )[3] ) ))
+#define get_u32(p) (((culng( cptr( ubyte ptr, p )[0] ) ) shl 24) _
+                 or ((culng( cptr( ubyte ptr, p )[1] ) ) shl 16) _
+                 or ((culng( cptr( ubyte ptr, p )[2] ) ) shl 8) _
+                 or  (culng( cptr( ubyte ptr, p )[3] ) ))
 
 #define get_u16(p) (((cushort( cptr( ubyte ptr, p )[0] ) ) shl 8) _
                  or  (cushort( cptr( ubyte ptr, p )[1] ) ))
 
-#define IS_CHUNK_TYPE(t,s) (*cptr( uinteger ptr, @(t) ) = *cptr( uinteger ptr, (s) ))
+#define IS_CHUNK_TYPE(t,s) (*cptr( ulong ptr, @(t) ) = *cptr( ulong ptr, (s) ))
 
 #ifdef PNG_DEBUG
 #define DEBUGPRINT(msg) puts( msg )
@@ -53,20 +53,20 @@ end type
 type NEW_HEADER field = 1
 	union
 		old  as OLD_HEADER
-		type as uinteger
+		type as ulong
 	end union
-	bpp                as integer
-	width              as uinteger
-	height             as uinteger
-	pitch              as uinteger
+	bpp                as long
+	width              as ulong
+	height             as ulong
+	pitch              as ulong
 	_reserved(1 to 12) as ubyte
 end type
 
 type png_chunk_t
-	length as uinteger
+	length as ulong
 	type   as zstring * 4
 	data   as ubyte ptr
-	crc32  as uinteger
+	crc32  as ulong
 end type
 
 type png_RGB8_t
@@ -77,8 +77,8 @@ end type
 
 type png_image_t
 ' IHDR
-	width                   as uinteger
-	height                  as uinteger
+	width                   as ulong
+	height                  as ulong
 	bitdepth                as ubyte
 	colortype               as ubyte
 	compressionmethod       as ubyte
@@ -86,10 +86,10 @@ type png_image_t
 	interlacemethod         as ubyte
 ' PLTE
 	PLTE(0 to 255)          as png_RGB8_t
-	PLTE_count              as uinteger
+	PLTE_count              as ulong
 ' IDAT
 	IDAT                    as ubyte ptr
-	IDAT_len                as uinteger
+	IDAT_len                as ulong
 ' tRNS
 	has_tRNS                as bool_e
 	tRNS_3(0 to 255)        as ubyte
@@ -99,11 +99,11 @@ type png_image_t
 	tRNS_2b                 as ushort
 ' Other
 	buffer                  as ubyte ptr
-	buffer_len              as uinteger
-	buffer_pos              as uinteger
-	bpp                     as uinteger
+	buffer_len              as ulong
+	buffer_pos              as ulong
+	bpp                     as ulong
 	chunk                   as png_chunk_t ptr ptr
-	chunk_count             as uinteger
+	chunk_count             as ulong
 	initialized             as bool_e
 	prepared                as bool_e
 end type 

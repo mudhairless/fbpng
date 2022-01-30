@@ -11,7 +11,7 @@ chdir( exepath( ) )
 
 dim as any ptr img1 = png_load( "png/pngsuite_logo.png", PNG_TARGET_FBNEW )
 dim as any ptr img2 = any
-dim as integer w1, w2, h1, h2, x, y, compare_failed
+dim as ulong w1, w2, h1, h2, x, y, compare_failed
 
 if img1 = NULL then
 	print "The test image failed to load"

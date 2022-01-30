@@ -101,12 +101,14 @@ if Load_Texture( Texture(0), "lava.png" ) = 0 then
     sleep 1000, 1
     end
 end if
+print #errlog, "lava texture (0) loaded"
 
 if Load_Texture( Texture(1), "lava.png" ) = 0 then
     print #errlog, "texture not found"
     sleep 1000, 1
     end
 end if
+print #errlog, "lava texture (1) loaded"
 
 if _shader100_ <> 0 then
     Vertex_Shader   = Init_Shader( "shaders/wobble.vert", GL_VERTEX_SHADER_ARB )
@@ -310,8 +312,8 @@ function Load_Texture( byref Texture as Gluint, byref Filename as string ) as in
     glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR )
     glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE)
     
-    dim SprWidth as integer
-    dim SprHeight as integer
+    dim SprWidth as ulong
+    dim SprHeight as ulong
     png_dimensions( filename, SprWidth, SprHeight )
     dim as ubyte ptr buffer = png_load( filename, PNG_TARGET_OPENGL )
     

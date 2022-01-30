@@ -78,10 +78,10 @@ dim as integer i, x, y
 		screenlock( )
 			line(0, 0)-(scr_width - 1, scr_height - 1), &hFFFFFF, BF
 			if img1 <> NULL then
-				dim as uinteger w
-				dim as uinteger h
-				dim as uinteger ct
-				dim as uinteger bd
+				dim as ulong w
+				dim as ulong h
+				dim as ulong ct
+				dim as ulong bd
 				png_dimensions( "png/" & file_list[i], w, h )
 				png_pixelformat( "png/" & file_list[i], ct, bd )
 				dim as any ptr img2 = imagecreate( w, h )

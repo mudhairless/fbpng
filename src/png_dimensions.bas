@@ -4,14 +4,14 @@
 sub png_dimensions cdecl alias "png_dimensions" _
 	( _
 		byref filename as string, _
-		byref w        as uinteger, _
-		byref h        as uinteger _
+		byref w        as ulong, _
+		byref h        as ulong _
 	)
 	
 	dim as integer i = any
 	dim as FILE ptr hfile = fopen( strptr( filename ), "rb" )
 	dim as ubyte sig(0 to 7)
-	dim as uinteger tmp1 = any, tmp2 = any
+	dim as ulong tmp1 = any, tmp2 = any
 
 	w = 0
 	h = 0
@@ -57,8 +57,8 @@ end sub
 sub png_dimensions_mem cdecl alias "png_dimensions_mem" _
 	( _
 		byval buffer as any ptr, _
-		byref w      as uinteger, _
-		byref h      as uinteger _
+		byref w      as ulong, _
+		byref h      as ulong _
 	)
 
 	dim as integer i = any

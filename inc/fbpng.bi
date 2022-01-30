@@ -230,29 +230,29 @@ declare Sub png_destroy cdecl alias "png_destroy" _
 declare sub png_dimensions cdecl alias "png_dimensions" _
 	( _
 		byref filename as string, _
-		byref w        as uinteger, _
-		byref h        as uinteger _
+		byref w        as ulong, _
+		byref h        as ulong _
 	)
 
 declare sub png_dimensions_mem cdecl alias "png_dimensions_mem" _
 	( _
 		byval buffer as any ptr, _
-		byref w      as uinteger, _
-		byref h      as uinteger _
+		byref w      as ulong, _
+		byref h      as ulong _
 	)
 
 declare sub png_pixelformat cdecl alias "png_pixelformat" _
 	( _
 		byref filename  as string, _
-		byref colortype as uinteger, _
-		byref bitdepth  as uinteger _
+		byref colortype as ulong, _
+		byref bitdepth  as ulong _
 	)
 
 declare sub png_pixelformat_mem cdecl alias "png_pixelformat_mem" _
 	( _
 		byref buffer    as any ptr, _
-		byref colortype as uinteger, _
-		byref bitdepth  as uinteger _
+		byref colortype as ulong, _
+		byref bitdepth  as ulong _
 	)
 
 declare function png_load2 cdecl alias "png_load2" _

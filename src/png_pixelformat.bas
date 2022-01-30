@@ -4,14 +4,14 @@
 sub png_pixelformat cdecl alias "png_pixelformat" _
 	( _
 		byref filename  as string, _
-		byref colortype as uinteger, _
-		byref bitdepth  as uinteger _
+		byref colortype as ulong, _
+		byref bitdepth  as ulong _
 	)
 	
 	dim as integer i = any
 	dim as FILE ptr hfile = fopen( strptr( filename ), "rb" )
 	dim as ubyte sig(0 to 7)
-	dim as uinteger tmp1, tmp2
+	dim as ulong tmp1, tmp2
 
 	colortype = 0
 	bitdepth = 0
@@ -57,11 +57,11 @@ end sub
 sub png_pixelformat_mem cdecl alias "png_pixelformat_mem" _
 	( _
 		byref buffer    as any ptr, _
-		byref colortype as uinteger, _
-		byref bitdepth  As uinteger _
+		byref colortype as ulong, _
+		byref bitdepth  As ulong _
 	)
 
-	dim as integer i = any
+	dim as long i = any
 	dim as ubyte ptr p = buffer
 
 	colortype = 0

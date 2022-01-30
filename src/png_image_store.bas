@@ -5,7 +5,7 @@
                   or (((n) and &h00ff0000) shr 8) _
                   or (((n) and &hff000000) shr 24))
 
-#define put_u32(p, n) *cptr( uinteger ptr, p ) = make_u32(n)
+#define put_u32(p, n) *cptr( ulong ptr, p ) = make_u32(n)
 
 #macro	memwrite( _d, _do, _s, _b )
 	memcpy cast( any ptr , ( ( _d ) + ( _do ) ) ), cast( any ptr, ( _s ) ), ( _b )
