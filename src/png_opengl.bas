@@ -19,10 +19,10 @@ Function opengl_cb_create cdecl alias "opengl_cb_create" _
 
 	If( img )Then Return 0
 
-        img = callocate_aligned( w * h * 4 )
-        if( img = NULL )then function = -1
-        cast( long ptr, img )[-2] = w
-        Cast( long ptr, img )[-3] = h
+	img = callocate_aligned( (sizeof(any ptr) * 2) + (w * h * 4) )
+	if( img = NULL )then function = -1
+	cast( long ptr, img )[-2] = w
+	Cast( long ptr, img )[-3] = h
 
 end function
 

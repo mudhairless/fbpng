@@ -11,22 +11,25 @@ function callocate_aligned cdecl alias "callocate_aligned" _
 		byval size as ulong _
 	) as any ptr
 
-	if size <= 0 then
+	if size = 0 then
 		return NULL
 	end if
 
-	dim as any ptr result = any
+	const ALIGNMENT as ubyte = 16
+
+	dim as ubyte ptr result = any
 	dim as ulong real_size = any
 
-	real_size = size + sizeof( any ptr ) + &H1Ful
+	real_size = size + &HF
 
 	result = callocate( real_size )
 	
 	if result <> NULL then
+		dim as uinteger remainder_ = cuint(result) MOD ALIGNMENT
+		dim as ubyte offset = ALIGNMENT - remainder_
 		dim as any ptr orig_p = result
-		result += sizeof( any ptr ) + &H1Ful
-		*(cast( uinteger ptr, @result )) = culng(*(cast( uinteger ptr, @result )) AND (not &HFul))
-		cptr(any ptr ptr, result)[-1] = orig_p
+		result = orig_p + offset
+		*(result - 1) = offset
 	end if
 	
 	function = result
@@ -45,8 +48,13 @@ sub deallocate_aligned cdecl alias "deallocate_aligned" _
 		exit sub
 	end if
 
+	dim as ubyte offset = *(cast(ubyte ptr, buffer) - 1)
+	if(offset > 16) then
+		offset = 16
+	end if
+
 	' Due to the alignment for SSE, the real pointer to be free'd is actually just before the buffer
-	deallocate( cptr( any ptr ptr, buffer )[-1] )
+	deallocate( cast(ubyte ptr, buffer) - offset )
 
 end sub
 

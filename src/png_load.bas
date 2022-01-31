@@ -39,27 +39,27 @@ function png_load_mem cdecl alias "png_load_mem" _
 	) as any ptr
 
 	dim as png_image_t      img
-        dim as any ptr          outbuffer
-        dim as png_cb           cb
+	dim as any ptr          outbuffer
+	dim as png_cb           cb
 
-        function = NULL
+	function = NULL
 
 	if (buffer = NULL) or (buffer_len < 49) then ' 49/50 is the bare minimum
 		exit function
 	end if
 
-        select case target
-        	case    PNG_TARGET_FBNEW		: cb = GFXLIB2_NEW_CB
-        	case    PNG_TARGET_FBOLD		: cb = GFXLIB2_OLD_CB
-        	case    PNG_TARGET_OPENGL		: cb = OPENGL_CB
-        	case	else
-        		DEBUGPRINT( "Invalid image format" )
-        		exit function
-        end select
+	select case target
+		case    PNG_TARGET_FBNEW		: cb = GFXLIB2_NEW_CB
+		case    PNG_TARGET_FBOLD		: cb = GFXLIB2_OLD_CB
+		case    PNG_TARGET_OPENGL		: cb = OPENGL_CB
+		case	else
+			DEBUGPRINT( "Invalid image format" )
+			exit function
+	end select
 
 	png_image_init( img, buffer, buffer_len )
 	If( png_image_prepare( img ) = 0 )Then
-		if( png_image_convert( img, 32, outbuffer, NULL, cb ) = 0 )then function = outbuffer
+		if( png_image_convert( img, 32, outbuffer, NULL, cb ) = 0 ) then function = outbuffer
 	End If
 	png_image_deinit( img )
 
