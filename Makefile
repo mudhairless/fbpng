@@ -4,6 +4,8 @@ RM := rm
 
 LIBNAME := fbpng
 
+ARCH := x86
+
 BUILDDIR := build
 SRCDIR := src
 INCDIR := inc
@@ -44,7 +46,8 @@ ifdef DEBUG
 	FLAGS += -g -d PNG_DEBUG
 	CFLAGS += -g
 else
-	CFLAGS += -O2
+	FLAGS += -O 2
+	CFLAGS += -O3
 endif
 
 ifdef PROFILE
@@ -54,6 +57,27 @@ endif
 
 ifdef EXX
 	FLAGS += -exx
+endif
+
+ifdef VERBOSE
+	FLAGS += -v
+	CFLAGS += -v
+endif
+
+ifdef 32BIT
+	CFLAGS += -m32
+	ifeq ($(ARCH), x86)
+		CFLAGS += -march=pentium4
+		FLAGS += -arch pentium4
+	endif
+endif
+
+ifdef 64BIT
+	CFLAGS += -m64
+	ifeq ($(ARCH), x86)
+		CFLAGS += -march=core2
+		FLAGS += -arch x86-64
+	endif
 endif
 
 ifdef PNG_NO_OLD_API
